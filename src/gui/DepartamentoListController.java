@@ -3,7 +3,6 @@ package gui;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,22 +13,22 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.entities.Departamento;
+import model.entities.Department;
 import model.services.DepartamentoServices;
 
 public class DepartamentoListController implements Initializable {
 	private DepartamentoServices service;
 	
 	@FXML
-	private TableView<Departamento> tableViewDepartamento;
+	private TableView<Department> tableViewDepartamento;
 	@FXML
-	private TableColumn<Departamento, Integer> tableColumnId;
+	private TableColumn<Department, Integer> tableColumnId;
 	@FXML
-	private TableColumn<Departamento, String> tableColumnNome;
+	private TableColumn<Department, String> tableColumnNome;
 	@FXML
 	private Button btNovo;
 	
-	private ObservableList<Departamento> obsList;
+	private ObservableList<Department> obsList;
 	
 	@FXML
 	public void onBtNovoAction() {
@@ -58,7 +57,7 @@ public class DepartamentoListController implements Initializable {
 		if(service == null) {
 			throw new IllegalStateException("Servico está null");
 		}
-		List<Departamento> list = service.findAll();
+		List<Department> list = service.findAll();
 		obsList = FXCollections.observableArrayList(list);
 		tableViewDepartamento.setItems(obsList);
 	}
